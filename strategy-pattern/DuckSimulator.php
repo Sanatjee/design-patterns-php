@@ -2,6 +2,7 @@
 
 include_once 'MallardDuck.php';
 include_once 'DecoyDuck.php';
+include_once 'ToyDuck.php';
 
 class DuckSimulator{
     public static function main(){
@@ -14,6 +15,13 @@ class DuckSimulator{
         echo "<br> <br> 
         Decoy Duck <br>";
         $decoy = new DecoyDuck();
+        echo $decoy->performFly();
+        echo "<br>";
+        echo $decoy->performQuack();
+
+        echo "<br> <br> 
+        Toy Duck <br>";
+        $decoy = new ToyDuck();
         echo $decoy->performFly();
         echo "<br>";
         echo $decoy->performQuack();
