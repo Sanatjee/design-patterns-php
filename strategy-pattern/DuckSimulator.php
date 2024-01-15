@@ -4,6 +4,9 @@ include_once 'MallardDuck.php';
 include_once 'DecoyDuck.php';
 include_once 'ToyDuck.php';
 
+include_once "Behavior/Fly/FlyWithWings.php";
+include_once "Behavior/Quack/Quack.php";
+
 class DuckSimulator{
     public static function main(){
         echo "Mallard Duck <br>";
@@ -18,13 +21,21 @@ class DuckSimulator{
         echo $decoy->performFly();
         echo "<br>";
         echo $decoy->performQuack();
+        echo "<br> Let me get a beak!";
+        echo $decoy->setQuackBehavior(new Quack);
+        echo "<br> Oh see! ";
+        echo $decoy->performQuack();
 
         echo "<br> <br> 
         Toy Duck <br>";
-        $decoy = new ToyDuck();
-        echo $decoy->performFly();
+        $toy = new ToyDuck();
+        echo $toy->performFly();
+        echo "<br> Let me get wings!";
+        $toy->setFlyBehavior(new FlyWithWings);
+        echo "<br>Ohh see! ";
+        echo $toy->performFly();
         echo "<br>";
-        echo $decoy->performQuack();
+        echo $toy->performQuack();
     }
 }
 
